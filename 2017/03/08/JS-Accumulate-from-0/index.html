@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="廖文浩在 Github 上的个人博客">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="WechatIMG3.jpeg">
+    <link rel="alternate" type="application/atom+xml" title="KYLEWH" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        JS: Accumulate from 0｜Kyle&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://kylewh.github.io/2017/03/08/JS-Accumulate-from-0/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://om8hmotom.bkt.clouddn.com/banner_2.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KYLEWH
+                </span>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://om8hmotom.bkt.clouddn.com/book.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://om8hmotom.bkt.clouddn.com/book.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>JS: Accumulate from 0</h1>
+                    
+                    <span class="meta">
+                         作者 Kylewh
+                        <span>
+                          日期 2017-03-08
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#JS"
+                           title="JS">JS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            JS: Accumulate from 0
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+                <h1 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h1><p>变量的声明有三种方法： <code>var</code>, <code>let</code>, <code>const</code></p>
+<ul>
+<li>var 声明一个变量，将其初始化成一个值，不支持块级作用域，存在变量提升。<strong>注意</strong>：使用<code>var</code>操作符定义的变量将成为定义该变量的作用域中的<strong>局部变量</strong>，也就是说，如果在函数中使用<code>var</code>定义一个变量，在函数执行完毕生命周期结束时这个局部变量也会被销毁。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// undefined;</span></div><div class="line">a = <span class="number">1</span>;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="comment">//不支持块级作用域</span></div><div class="line"><span class="keyword">var</span> b = <span class="number">10</span>;</div><div class="line">&#123;  </div><div class="line">	<span class="keyword">var</span> b = <span class="number">100</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">//100</span></div><div class="line"></div><div class="line"><span class="comment">//变量提升</span></div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//undefined</span></div><div class="line"><span class="keyword">var</span> x = <span class="number">100</span>;</div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//100</span></div></pre></td></tr></table></figure>
+<p>特殊的一点： 在函数内部声明变量如果<strong>不使用</strong><code>var</code>操作符的话这个变量会被创建成一个<strong>全局变量</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	message = <span class="string">'hi'</span>; <span class="comment">//global variable</span></div><div class="line">&#125;</div><div class="line">test();</div><div class="line"><span class="built_in">console</span>.log(message); <span class="comment">//hi;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>let 声明一个块级作用域变量， 可以将其初始化成一个值。在同一作用域中不允许重复声明，存在暂存死区（不支持变量提升）。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">100</span>;</div><div class="line">&#123;</div><div class="line">	<span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">//100</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">//"ReferenceError: b is not defined</span></div><div class="line"><span class="keyword">let</span> b = <span class="number">9</span>;</div><div class="line"><span class="comment">//let b = 99; //报错</span></div><div class="line"></div><div class="line"><span class="comment">//块级作用域妙用 循环</span></div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i =<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</div><div class="line">	<span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div><div class="line"><span class="comment">//0,1,2,3,4,5,6,7,8,9 不需要使用闭包了</span></div></pre></td></tr></table></figure>
+<ul>
+<li>const 声明的标识符绑定的值不可以再次改变，其他行为和let一样</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> a = <span class="number">10</span>;</div><div class="line">a = <span class="number">100</span>; <span class="comment">//"TypeError: Assignment to constant variable.</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> b = &#123;</div><div class="line">						<span class="string">'one'</span>: <span class="number">1</span>,</div><div class="line">						<span class="string">'two'</span>: <span class="number">2</span></div><div class="line">					&#125;;</div><div class="line">b.one = <span class="number">2</span>;</div><div class="line"><span class="comment">//此时绑定的是对object的引用，通过这个引用我们可以改变里面key对应的值。</span></div><div class="line"><span class="built_in">console</span>.dir(b);</div><div class="line"><span class="comment">/*</span></div><div class="line">    [object Object] &#123;</div><div class="line">      one: 2,</div><div class="line">      two: 2</div><div class="line">    &#125;</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="comment">//改变引用则报错</span></div><div class="line">b = &#123;&#125;; <span class="comment">//"TypeError: Assignment to constant variable.</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//利用闭包模拟静态变量</span></div><div class="line"><span class="keyword">var</span> Conf = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="comment">//私有变量</span></div><div class="line">            <span class="keyword">var</span> conf = &#123;</div><div class="line">                <span class="attr">STOCK</span>: <span class="number">100</span>, <span class="comment">//静态变量都大写</span></div><div class="line">                PRICE: <span class="number">50</span></div><div class="line">            &#125;;</div><div class="line">            <span class="comment">//返回取值器对象</span></div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</div><div class="line">                    <span class="keyword">return</span> conf[name] ? conf[name] : <span class="literal">null</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Conf.get(<span class="string">'STOCK'</span>)); <span class="comment">//100</span></div><div class="line"><span class="comment">//只能获取，不能修改。</span></div></pre></td></tr></table></figure>
+<p><strong>严格模式</strong>:<code>use strict</code>下，不声明进行使用会报错：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="meta">  'use strict'</span>;</div><div class="line">  <span class="keyword">var</span> x = y = <span class="number">0</span>; <span class="comment">//"ReferenceError: y is not defined</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>ECMAScript中有6种简单数据类型，<strong>Undefined</strong>, <strong>Null</strong>, <strong>Boolean</strong>, <strong>Number</strong>, <strong>String</strong>, <strong>Symbol</strong>. 一种复杂数据类型Object(Function).</p>
+<h3 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h3><p>用来检测给定变量的数据类型:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">console</span>.log (</div><div class="line">  <span class="keyword">typeof</span> a, <span class="comment">//undefined;</span></div><div class="line">  <span class="keyword">typeof</span> <span class="literal">false</span>, <span class="comment">//boolean</span></div><div class="line">  <span class="keyword">typeof</span> <span class="string">'kylewh'</span>, <span class="comment">//string</span></div><div class="line">  <span class="keyword">typeof</span> <span class="number">666</span>, <span class="comment">//number</span></div><div class="line">  <span class="keyword">typeof</span> &#123;&#125;, <span class="comment">//object</span></div><div class="line">  <span class="keyword">typeof</span> (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;), <span class="comment">// function</span></div><div class="line">  <span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">//object 历史遗留问题 object的源头</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<p><strong>PITFALL ALERT</strong>： </p>
+<ul>
+<li>对于未定义和未初始化的变量，typeof对其的检测结果都是<code>undefined</code>，这说明了显式初始化变量的重要性，以使我们可以分辨一个变量是否已经被声明。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">console</span>.log( <span class="keyword">typeof</span> a );<span class="comment">//undefined;</span></div><div class="line"><span class="keyword">var</span> b;</div><div class="line"><span class="built_in">console</span>.log( <span class="keyword">typeof</span> b ); <span class="comment">//undefined;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>因为<strong>基本包装类型</strong>的存在，依赖typeof进行类型检测并不可靠：（PS：基本包装类型从属于引用类型，在之后将介绍，期间还会有一个小trick，留意哦）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">9</span>);</div><div class="line"><span class="built_in">console</span>.log( <span class="keyword">typeof</span> a ); <span class="comment">//object;</span></div></pre></td></tr></table></figure>
+<h3 id="Undefined类型"><a href="#Undefined类型" class="headerlink" title="Undefined类型"></a>Undefined类型</h3><p>Undefined类型只有一个值： <code>undefined</code>，其他内容上面已经带着说了一下。</p>
+<h3 id="Null类型"><a href="#Null类型" class="headerlink" title="Null类型"></a>Null类型</h3><p>它是第二个只有一个值的类型，它可以被看做javascript一切对象的起源，后面讲原型的时候会讲到。null值表示一个空对象指针，这也是为什么检测null用typeof会返回obejct的原因。 如果生命了以后对象是为了以后保存一个对象，那么可以显式的将其初始化为null而不是其他值。     </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">console</span>.log( <span class="literal">null</span> == <span class="literal">undefined</span> ); <span class="comment">//这里==操作符其实对操作数做了转换</span></div></pre></td></tr></table></figure>
+<p>undefined其实派生自null.</p>
+<h3 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h3><p>两个值: <code>ture</code> and <code>false</code>.如果想要将其他类型的值转化为boolean类型，可以使用转型函数Boolean();</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> mes = <span class="string">'hi there'</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(mes)); <span class="comment">//true</span></div></pre></td></tr></table></figure>
+<p>另外我们也可以使用<code>!!</code>让一个值转化为boolean类型：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> b = &#123;&#125;;</div><div class="line"><span class="built_in">console</span>.log(!!b, <span class="keyword">typeof</span> !!b); <span class="comment">//true, boolean</span></div></pre></td></tr></table></figure>
+<h4 id="falsy-value"><a href="#falsy-value" class="headerlink" title="falsy value"></a>falsy value</h4><p>所谓falsy value就是这些值在进行转型时会被转化成false的值: </p>
+<ul>
+<li><strong>false`</strong></li>
+<li><strong>“”</strong>(空字符串)</li>
+<li><strong>0</strong> 和 <strong>-0</strong> , <strong>NaN</strong></li>
+<li><strong>null</strong></li>
+<li><strong>undefined</strong></li>
+</ul>
+<p>而除此以外，非空字符串，非0数字值，包括Infinity，任何对象，都能被转化为true.</p>
+<h3 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h3><p>整数范围：-2^53 - 2^53, Number类型具有不同进制数，ECMA-262定义了不同的数值字面量格式：</p>
+<ul>
+<li>八进制第一位必须为0，然后是八进制数字序列(0-7)，如果字面值中的数值超出了范围，前导的0将会被忽略，后边的数值将被当做十进制数值解析。</li>
+<li>十六进制前两位必须是0x, 后跟任何十六进制数字(0-9,A-F), A-F字母可以大写也可以小写。   </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> intNum = <span class="number">55</span>; <span class="comment">//整数</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> octalNum1 = <span class="number">070</span>; <span class="comment">//八进制56</span></div><div class="line"><span class="keyword">var</span> octalNum2 = <span class="number">079</span>; <span class="comment">// 9超出0-7范围，解析失败，忽略0，当成十进制解析 结果为79</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> hexNum1 = <span class="number">0xA</span>; <span class="comment">//十六进制的10</span></div><div class="line"></div><div class="line"><span class="comment">//严格模式下不允许八进制和十六进制的字面量写法 'use strict'</span></div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">**PITFALL ALIERT**  </div><div class="line"></div><div class="line">`<span class="string">``</span>javascript</div><div class="line"><span class="keyword">var</span> hexNum2 = <span class="number">0</span>xZ; <span class="comment">//十六进制的10</span></div><div class="line"><span class="comment">//SyntaxError: Invalid or unexpected token 记住十六进制不像八进制那样可以进行宽容解析。</span></div></pre></td></tr></table></figure>
+<p>进行算术计算时，所有以八进制和十六进制表示的数值最终都将被转化成十进制，也就是说计算使用十进制。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> result = hexNum1 + octalNum1 + intNum; </div><div class="line"><span class="comment">//10+56+55 =  121</span></div></pre></td></tr></table></figure>
+<h4 id="浮点值"><a href="#浮点值" class="headerlink" title="浮点值"></a>浮点值</h4><ul>
+<li>内存占用为整数的两倍，所以JS会抓住时机将其转化为整数，比如小数点后没有任何数字时，它就会被保存为整数： <code>var a = 1.;</code>， 如果浮点值本身表示的就是整数，也会被转化成整数： <code>var b = 11.0;</code></li>
+<li>JS的浮点数计算使用基于IEEE754数值的浮点计算： <code>0.1 + 0.2 !== 0.3</code></li>
+<li>可以使用科学计数法： <code>var floatNum = 3.12e7</code>，等于31250000.</li>
+<li><code>Number.MIN_VALUE</code> : 5e-324</li>
+<li><code>Number.MAX_VALUE</code> : 1.7976931348623157e+308</li>
+<li>如果一个数值超越了数值范围，会被转化成<code>Infinity</code>(带正负号)，可以用isFinite()判断一个值是否有穷。</li>
+<li><code>NaN</code>，任何涉及<code>NaN</code>的值都会返回<code>NaN</code>， 不和任何值相等，包括自己，所以有一个isNaN()函数用来判断它，接受一个值，使用Number()转型函数将其转换成数字，然后判断其是不是<code>NaN</code>. <strong>传入对象也可以</strong>，会先调用valueOf()方法，如果不能转化为数值，就调用toString()方法，再返回测试值</li>
+</ul>
+<h4 id="数值转换"><a href="#数值转换" class="headerlink" title="数值转换"></a>数值转换</h4><p><code>Number()</code>, <code>parseInt()</code>, <code>parseFloat()</code>， Number可以把任何数据类型转型成数值，后面两个方法专注于将字符串转化成数值。具体转化细节见： javascript高级程序设计 P30</p>
+<p><strong>parseInt()</strong>: 它会忽略传入字符串前面的空格，直到找到第一个非空格字符串，如果第一个字符不是数字字符，或者符号，返回<code>NaN</code>。如果第一个字符是数字，则继续解析，直到解析完所有字符或者遇到非数字字符则停下来。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="built_in">parseInt</span>(<span class="string">'   a111'</span>); <span class="comment">//NaN</span></div><div class="line"><span class="keyword">var</span> num2 = <span class="built_in">parseInt</span>(<span class="string">' 0111a '</span>); <span class="comment">//111</span></div></pre></td></tr></table></figure>
+<p>在ECMAScipt 5 JavaScript引擎中，已经不支持对八进制的解析，所以可以传入第二个参数进行制定制式解析。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">'0xAF'</span>, <span class="number">16</span>); <span class="comment">//175</span></div><div class="line"><span class="comment">//传入基数后，可以不加前缀0x</span></div><div class="line"><span class="keyword">var</span> num2 = <span class="built_in">parseInt</span>(<span class="string">'AF'</span>, <span class="number">16</span>); <span class="comment">//175</span></div><div class="line"><span class="keyword">var</span> num3 = <span class="built_in">parseInt</span>(<span class="string">'AF'</span>); <span class="comment">//NaN 未传入基数</span></div></pre></td></tr></table></figure>
+<p><strong>parseFloat()</strong>: 始终会忽略前导的0，只解析十进制数值，而且如果转化后的小数满足转化成整数的原则的话，会自动转化为整数: ‘1.’=&gt; 1, ‘11.0’=&gt;11    </p>
+<p>暂时更到这里，明天继续。</p>
+
+                <hr>
+                
+                <!-- 多说 Share start -->
+                <div class="ds-share"
+                     style="text-align: right"
+                     data-thread-key="2017/03/08/JS-Accumulate-from-0/"
+                     data-title="JS: Accumulate from 0"
+                     data-url="http://kylewh.github.io/2017/03/08/JS-Accumulate-from-0/"
+                     data-images="http://kylewh.github.io/2017/03/08/JS-Accumulate-from-0//book.jpg"
+                     data-content="变量的声明变量的声明有三种方法： var, let, const
+
+var 声明一个变量，将其... | Kyle&#39;s blog ">
+                    <div class="ds-share-inline">
+                        <ul class="ds-share-icons-16">
+                            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                            <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                            <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                            <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                        </ul>
+                        <div class="ds-share-icons-more">
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <!-- 多说 Share end-->
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/03/07/test/" data-toggle="tooltip" data-placement="top"
+                           title="test">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                         data-thread-key="2017/03/08/JS-Accumulate-from-0/"
+                         data-title="JS: Accumulate from 0"
+                         data-url="http://kylewh.github.io/2017/03/08/JS-Accumulate-from-0/">
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+
+            <div class="col-lg-2 col-lg-offset-0 visible-lg-block sidebar-container catalog-container">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#变量的声明"><span class="toc-text">变量的声明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型"><span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#typeof操作符"><span class="toc-text">typeof操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Undefined类型"><span class="toc-text">Undefined类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Null类型"><span class="toc-text">Null类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boolean类型"><span class="toc-text">Boolean类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#falsy-value"><span class="toc-text">falsy value</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Number类型"><span class="toc-text">Number类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点值"><span class="toc-text">浮点值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数值转换"><span class="toc-text">数值转换</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#JS"
+                           title="JS">JS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'kylewh';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user};
+    (function () {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/kylevon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kylewh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KYLEWH 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://kylewh.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://om8hmotom.bkt.clouddn.com/avatar2.jpeg">
+</body>
+
+</html>
