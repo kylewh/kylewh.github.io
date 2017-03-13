@@ -449,17 +449,17 @@ article blockquote footer {
     }
     .intro-header .post-heading h1 {
         margin-top: 0;
-        font-size: 36px;
+        font-size: 46px;
     }
     .intro-header .post-heading .subheading {
-        font-size: 26px;
+        font-size: 28px;
         margin: 0;
     }
     .intro-header .post-heading .meta {
         font-size: 16px;
     }
     .intro-header {
-        height: 370px;
+        height: 600px;
     }
 }
 
