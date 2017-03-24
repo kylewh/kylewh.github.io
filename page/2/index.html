@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://kylewh.github.io/archives/2017/03/">
+    <link rel="canonical" href="http://kylewh.github.io/page/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -44,7 +44,7 @@
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
-" data-ishome = "false" >
+" data-ishome = "true" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -124,6 +124,126 @@
 <!-- Main Content -->
 
 
+<style>
+
+    .custom-haojen-container .post-preview:nth-of-type(1),
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        text-align: center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        background-size: cover;
+        padding: 0;
+        height: 300px;
+        display: table;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.16);
+    }
+
+    /*去掉诗歌的背景图片*/
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        background-image: none !important;
+        background-color: rgba(255, 248, 220, 0.5);
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) h2,
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta,
+    .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        text-shadow: 0 0 40px rgba(0, 0, 0, 1);
+        letter-spacing: 1px;
+        color: #fff;
+        margin-top: 0;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta {
+        font-size: .9em;
+        font-weight: 300;
+        margin-top: 0;
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-child(1) .post-subtitle {
+        letter-spacing: 6px;
+        font-size: 18px;
+        font-family: unset;
+        font-weight: 400;
+        color: rgba(0, 0, 0, .75)
+    }
+
+    /*不显示摘要*/
+    .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
+        display: none
+    }
+
+    /*只第一个显示背景图片*/
+    .custom-haojen-container .post-preview:not(:nth-child(1)) {
+        background-image: none !important;
+    }
+
+    /*第一个分界线去掉*/
+    .custom-haojen-container hr:nth-of-type(1) {
+        display: none;
+    }
+
+    /*主题*/
+    .custom-haojen-container .post-preview:nth-of-type(1) > a {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    /*诗词标题*/
+    .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        font-size: 35px;
+        font-family: STKaiti;
+        color: rgba(0, 0, 0, .8);
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) .post-meta {
+        color: #0e2231;
+    }
+
+    @media (max-width: 768px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 240px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 28px !important;
+            margin-top: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-of-type(1) > a {
+            padding: 20px
+        }
+    }
+
+    /*手机屏幕*/
+    @media (max-width: 400px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 195px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 20px !important;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 16px;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) a {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
 <!-- Page Header -->
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
     <div class="row">
@@ -151,195 +271,25 @@
 
 
 <div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/book.jpg')">
-    <a href="/2017/03/24/From-Iterator-To-Async/">
+     style="background-image: url('http://om8hmotom.bkt.clouddn.com/banner.jpg')">
+    <a href="/2017/03/05/Finally-I-have-to-build-a-blog/">
         <h2 class="post-title">
-            From Iterator To Async
+            Finally, I have to build a blog.
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-24
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-05
         </p>
+        
+        <h3 class="post-subtitle">
+            Here I am, you can call me kyle
+        </h3>
         
         <div class="post-content-preview">
             <p>
-                
-代码是人脑逻辑的抽象体现，我们始终在真实发生的反直觉的逻辑与人脑逻辑的平衡中挣扎。 我们的顶层认知思维是单线程且倾向于顺序性的，这使得我们当遇到一些不得不打乱这种顺序和单任务执行的抽象逻辑时变的很迷惑，其中最”臭名昭著”的便是异步编程，它的内部机制和原始的代码抽象是非常反直觉的存在，让我们的大..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/curry.jpg')">
-    <a href="/2017/03/14/知乎秀我一脸，这必须是考察柯里化/">
-        <h2 class="post-title">
-            知乎秀我一脸，这必须是考察柯里化
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-14
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-库里： ？？？
-首先上链接，Web前端面试题，求解答？;
-问题描述/*4.写一个mul函数调用时将生成以下输出:console.log(mul(2)(3)(4)); // output : 24 console.log(mul(4)(3)(4)); // output : 48*/
-里面真是群..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/book.jpg')">
-    <a href="/2017/03/12/JS-Accumulate-from-0系列之数组-字符串方法/">
-        <h2 class="post-title">
-            JS: Accumulate from 0系列之数组&字符串方法
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-12
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Arraylength:你问我有多长？数组的长度是一个可修改的属性，而作为一个类数组的必要条件也是具有一个可以读写的length属性。     
-var arr = [1,2,3,4,5];console.log( arr.length ); //5//如果设置长度超过原有的长度，则新的位置的值..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/book.jpg')">
-    <a href="/2017/03/09/JS-Accumulate-from-0系列之构建模式-继承/">
-        <h2 class="post-title">
-            JS: Accumulate from 0系列之构建模式&继承
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-09
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Object &amp; prototype &amp; inheritance对象的创建在我们创建一个对象时，我们可以利用构造器函数的方式，在这种方式下，我们会使用new操作符，在这之前我们声明一个用来当做构造器函数的函数时会经历如下过程：
-
-声明一个function
-function自动获得..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/object.jpg')">
-    <a href="/2017/03/09/JS-Accumulate-from-0系列之Object/">
-        <h2 class="post-title">
-            JS: Accumulate from 0系列之Object
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-09
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                引用类型之–Object对象是javascript的灵魂，一切都可视作“对象”.    
-创建1.使用new操作符创建，通过构造器函数.
-var obj = new Object();obj.age = 29;obj.name = 'kyle';function Person (name, ag..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/book.jpg')">
-    <a href="/2017/03/08/JS-Accumulate-from-0系列之function/">
-        <h2 class="post-title">
-            JS: Accumulate from 0系列之function
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-08
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                引用类型之-Function声明//函数声明会提前var result = add(1,2,3,4,5,6,7,8,9);console.log(result);  //45function add() &#123;	var aArgs = [].slice.call(arguments);	r..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/book.jpg')">
-    <a href="/2017/03/07/JS-Accumulate-from-0/">
-        <h2 class="post-title">
-            JS: Accumulate from 0系列之变量&操作符
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-07
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-本文内容讲述JS里最基本的知识：变量 和 操作符
-
-变量的声明变量的声明有三种方法： var, let, const
-
-var 声明一个变量，将其初始化成一个值，不支持块级作用域，存在变量提升。注意：使用var操作符定义的变量将成为定义该变量的作用域中的局部变量，也就是说，如果在函数中使用va..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/rocket.jpg')">
-    <a href="/2017/03/06/接下来的事/">
-        <h2 class="post-title">
-            接下来的事
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-03-06
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Books这两天在看设计模式的书，一共三本，第三本是OREILLY鸟书，写的那叫一个dry啊！(DRY = 晦涩&amp;干货)之前一直看书看不进去，直到硬啃高程啃到纸都有点发黄了..(是有多脏..)终于找回了看书的感觉，以至于这几天看嗨了不看都有点心虚，但是于此同时对于还没开始做的项目更心虚。..
+                     
+Career starts hereiAwritter里的文章不知不觉也快100篇了，在这个分(zhuang)享(bi)的时代，没技术博客都说不上了话了。   
+最近恰逢回国了要找工作，哎 ~ 少小不读书，老大徒伤悲…    
+那么就开始整理整理自己写过的文章吧，顺便把知识点都过一遍..
             </p>
         </div>
     </a>
@@ -355,10 +305,10 @@ var 声明一个变量，将其初始化成一个值，不支持块级作用域�
 
 <ul class="pager">
     
-    
-    <li class="next">
-        <a href="/archives/2017/03/page/2/">Older Posts &rarr;</a>
+    <li class="previous">
+        <a href="/">&larr; Newer Posts</a>
     </li>
+    
     
 </ul>
 
