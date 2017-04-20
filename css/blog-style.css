@@ -387,6 +387,7 @@ article blockquote footer {
     display: table-cell;
     vertical-align: middle;
     padding: 55px 15px 15px;
+    background: rgba(33, 33, 33, 0.29);
 }
 
 .intro-header .site-heading,
