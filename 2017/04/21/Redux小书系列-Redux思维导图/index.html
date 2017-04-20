@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        我的第一本redux小书｜Kyle&#39;s blog
+        Redux小书系列--Redux思维导图｜Kyle&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://kylewh.github.io/2017/04/21/我的第一本redux小书/">
+    <link rel="canonical" href="http://kylewh.github.io/2017/04/21/Redux小书系列-Redux思维导图/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -127,13 +127,13 @@
 
 
 <img class="wechat-title-img"
-     src="http://om8hmotom.bkt.clouddn.com/redux.png">
+     src="http://om8hmotom.bkt.clouddn.com/reduxlog.jpg">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('http://om8hmotom.bkt.clouddn.com/redux.png?imageView2/1/w/1400/h/400/interlace/1/q/90')
+        background-image: url('http://om8hmotom.bkt.clouddn.com/reduxlog.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
     }
 
     
@@ -144,7 +144,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>我的第一本redux小书</h1>
+                    <h1>Redux小书系列--Redux思维导图</h1>
                     
                     <span class="meta">
                          作者 Wenhao Liao
@@ -154,14 +154,8 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#portfolio"
-                           title="portfolio">portfolio</a>
-                        
-                        <a class="tag" href="/tags/#react"
-                           title="react">react</a>
-                        
-                        <a class="tag" href="/tags/#redux"
-                           title="redux">redux</a>
+                        <a class="tag" href="/tags/#react - redux"
+                           title="react - redux">react - redux</a>
                         
                     </div>
                 </div>
@@ -170,7 +164,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            我的第一本redux小书
+            Redux小书系列--Redux思维导图
         </span>
     </div>
 </header>
@@ -181,33 +175,44 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
-                <h2 id="写在前面的无关紧要的话"><a href="#写在前面的无关紧要的话" class="headerlink" title="写在前面的无关紧要的话"></a>写在前面的无关紧要的话</h2><p>说好了不跳票….呵呵…这都多久没更新了….<br>说好分享的异步动画库呢…<br>其实在电脑里放着都落灰了…我一时半会儿都有点记忆模糊了…<br>我一定更一定更….<br>最近要去找工作了，终于迈入了框架的坑。<br>别问我为什么选了React ：）<br>最近真的很郁闷啊，回头看看已经折腾过的东西，都有种记忆模糊的感觉。<br><strong>记忆亡我</strong>，要是遇到笔试题我真的要挂死了吧…<br>真是怀念当年遇到JS题拿来就刷刷刷就写出社区排名第二的答案的日子..<br>真的得好好回顾一下以前的知识了.     </p>
-<p>好了！不伤春悲秋了，自己跪着也要走下去。。。（不哭 T_T )     </p>
-<h2 id="我的第一本redux小书"><a href="#我的第一本redux小书" class="headerlink" title="我的第一本redux小书"></a>我的第一本redux小书</h2><p>Understand Redux是一本我个人学习redux中的知识梳理与原理分析的记录。   </p>
-<p><img src="http://om8hmotom.bkt.clouddn.com/2017-04-20-171010.jpg" alt=""></p>
-<p>你们大概能看出来，这是一本demo based的<strong>基础基础基础</strong>教程，旨在帮助刚接触react的有一定JS经验的同学迅速了解react-redux技术栈开发的基本知识，能够将相关概念串联起来建立思维模型的教程。</p>
-<p>链接： <a href="https://kylewh.gitbooks.io/understand-redux/content/counter-example.html" target="_blank" rel="external">GitBook</a></p>
-<h2 id="为什么会写这本书？"><a href="#为什么会写这本书？" class="headerlink" title="为什么会写这本书？"></a>为什么会写这本书？</h2><p>在学习各种框架的过程中，最大困惑往往不是一个API的使用，而是为什么要这么使用，为什么会存在这个API，这涉及到框架背后的思想，而无论是具体的API使用，还是思想的设计，都存在”使用场景“。 理解了使用场景，that will make sense of everything.</p>
-<p>其次，在学习过程中我对自己的学习状态的反思发现，往往在初期我能够迅速的go through，even dive into. 但是在以时间为参数的遗忘函数的作用下，又会很快的忘记。 回忆起当初醍醐灌顶时的兴奋与如今试着回忆却脑袋空白的无奈形成极其鲜明的落差，为了打破这种困境，我决定将所学习的一切试着用一个讲述者的身份将它们输出. 输出的性价比远比输入高，所谓Learn By Doing.</p>
-<p>写这本小书的初衷是因为最近在倒腾一个todoApp，想做的稍微复杂一些，体验更好一些。随之而来发现遇到了不少坑，一些是工程实践，一些是技术细节记忆漏洞，还要一些是技术短板。 我也决定记录下来在做这个personal little project的时候遇到的种种，将它们梳理并记录，以此对一个产品的形成，背后的技术栈，最佳实践有一个完整的框架。</p>
-<p>我个人对React特别有好感，在vue于angular之间，前者小而美，后者大而全，（G家的东西，莫名有种冷艳之感…）而react配合其社区下的繁荣生态的产物，能让自顶而下，数据不变的思想发挥到极致，其精髓在于函数式编程的威力。 而Redux的出现加强了实践中对于应用数据的整合，拯救app于杂乱无章漫天飞舞的setState中，而且更可贵的是，它很小！！</p>
-<p>在阅读源码的时候虽然有些许疑惑，但是得益于在写这本小书时结合例子的一步步完善修补，对其中的核心思想有了大概的蓝图。 之前在看一本名叫《学习之道》的书里，作者反复强调了对于一块未知的知识，最先做的事不是从头到尾开始啃，而是找出它的轮廓，了解知识的分布，利用大脑内部的自动处理机制，为我们提供一条预置的”跑道“，这样我们在学习的过程中就不容易跑偏，不会去纠结甚至死抠细节。</p>
-<p><img src="http://om8hmotom.bkt.clouddn.com/small.jpg" alt=""></p>
-<p>敬睡眠严重不足，茶饭不思的学习，总结，书写的三天。</p>
-<p>Kylewh</p>
-<p>2016.4.21</p>
-<p>此书会不定时持续更新</p>
+                <h2 id="进展"><a href="#进展" class="headerlink" title="进展"></a>进展</h2><p>这两天在了解一些best practice，然后用它来尝试把之前的todo demo给不断的改改改改…. 在这之间也很懵逼，把自己改糊涂了。 很容易就迷失了逻辑，所以，好记性不如画脑图！ 所以我又拿出了我的mindNode进行了一番创作….    </p>
+<p>大概长这个样子：</p>
+<p><img src="http://om8hmotom.bkt.clouddn.com/2017-04-20-180815.jpg" alt="">    </p>
+<p><strong>链接：</strong></p>
+<ul>
+<li><a href="http://om8hmotom.bkt.clouddn.com/reactStack.pdf" target="_blank" rel="external">PDF</a></li>
+<li><a href="http://om8hmotom.bkt.clouddn.com/reactStack_v2.png" target="_blank" rel="external">PNG</a></li>
+</ul>
+<p>该怎么看这个图呢？    </p>
+<p><strong>个人建议：</strong></p>
+<p>按顺序看 = = ！    </p>
+<ol>
+<li>先看Redux左部分，了解Redux里的构造。</li>
+<li>看Redux右边combineReducer那一部分。</li>
+<li>看react-redux和application</li>
+</ol>
+<p><strong>Tips：</strong>：<br>如果。。。你不是一个色盲，那你应该能识别这些颜色之间所表达的relationship.</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>顺着走两三遍，头脑顿时清晰不少，要常看哟！</p>
+<h2 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h2><p>梳理出我的终极todo demo的程序脑图，并且配上文字详细解析。</p>
+<p>今天又跟朋友聊了下，别人都说我JS基础好，我咋感觉不大啊 = =，拿起大厂的人出的那些挑战题，一时半会儿真是没想法啊…如果出现在笔试里我真的当场跪下了。 还是那个头疼的问题，记忆都消散了。。。 如果十几天后去面试面试官问我，你为什么不记得这个，不记得那个… 我只能说… 当初我做出这些作品的时候，手到擒来，用的贼6，这日子一长，不用丢在一边。。。<del>鬼才记得</del>！！（不不不这句删掉），只能再看看书是不，我保证出活儿依然利索的！！（真诚的眼神）     </p>
+<p>哈哈哈哈不扯了，继续梳理代码逻辑去咯…   </p>
+<p>话说我的炫酷版demo一直搁置了，亏我还去研究了react-motion。。。各种dragable &amp; sortable List。。。顺便膜拜了下chengmo大神.</p>
+<p><img src="http://om8hmotom.bkt.clouddn.com/2017-04-20-cat.jpeg" alt=""></p>
+<p>夜是喵深邃眼睛….    </p>
+<p>盯着我….    </p>
+<p>让我好好学习，不要偷懒 = =！</p>
+<p>白白。    </p>
 
                 <hr>
                 
                 <!-- 多说 Share start -->
                 <div class="ds-share"
                      style="text-align: right"
-                     data-thread-key="2017/04/21/我的第一本redux小书/"
-                     data-title="我的第一本redux小书"
-                     data-url="http://kylewh.github.io/2017/04/21/我的第一本redux小书/"
-                     data-images="http://kylewh.github.io/2017/04/21/我的第一本redux小书//redux.png"
-                     data-content="写在前面的无关紧要的话说好了不跳票….呵呵…这都多久没更新了….说好分享的异步动画库呢…其实在... | Kyle&#39;s blog ">
+                     data-thread-key="2017/04/21/Redux小书系列-Redux思维导图/"
+                     data-title="Redux小书系列--Redux思维导图"
+                     data-url="http://kylewh.github.io/2017/04/21/Redux小书系列-Redux思维导图/"
+                     data-images="http://kylewh.github.io/2017/04/21/Redux小书系列-Redux思维导图//reduxlog.jpg"
+                     data-content="进展这两天在了解一些best practice，然后用它来尝试把之前的todo demo给不断... | Kyle&#39;s blog ">
                     <div class="ds-share-inline">
                         <ul class="ds-share-icons-16">
                             <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -225,15 +230,10 @@
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/04/21/Redux小书系列-Redux思维导图/" data-toggle="tooltip" data-placement="top"
-                           title="Redux小书系列--Redux思维导图">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/04/10/flex布局梳理/" data-toggle="tooltip" data-placement="top"
-                           title="flex布局梳理 ">Next Post &rarr;</a>
+                        <a href="/2017/04/21/我的第一本redux小书/" data-toggle="tooltip" data-placement="top"
+                           title="我的第一本redux小书">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -242,9 +242,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                         data-thread-key="2017/04/21/我的第一本redux小书/"
-                         data-title="我的第一本redux小书"
-                         data-url="http://kylewh.github.io/2017/04/21/我的第一本redux小书/">
+                         data-thread-key="2017/04/21/Redux小书系列-Redux思维导图/"
+                         data-title="Redux小书系列--Redux思维导图"
+                         data-url="http://kylewh.github.io/2017/04/21/Redux小书系列-Redux思维导图/">
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
@@ -256,7 +256,7 @@
 
             <div class="col-lg-2 col-lg-offset-0 visible-lg-block sidebar-container catalog-container">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面的无关紧要的话"><span class="toc-text">写在前面的无关紧要的话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#我的第一本redux小书"><span class="toc-text">我的第一本redux小书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会写这本书？"><span class="toc-text">为什么会写这本书？</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进展"><span class="toc-text">进展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Next"><span class="toc-text">Next</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -278,14 +278,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#portfolio"
-                           title="portfolio">portfolio</a>
-                        
-                        <a class="tag" href="/tags/#react"
-                           title="react">react</a>
-                        
-                        <a class="tag" href="/tags/#redux"
-                           title="redux">redux</a>
+                        <a class="tag" href="/tags/#react - redux"
+                           title="react - redux">react - redux</a>
                         
                     </div>
                 </section>
