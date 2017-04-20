@@ -535,6 +535,13 @@ a:focus {
 
 .post-content-preview p {
     color: #555;
+    background-image: linear-gradient(to right, #fff 50%, #FAFAFA 50%);
+    background-size: 200%;
+    transition: all 0.6s;
+}
+
+.post-content-preview p:hover {
+    background-position: -100%;
 }
 
 .section-heading {
