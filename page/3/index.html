@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://kylewh.github.io/tags/redux/">
+    <link rel="canonical" href="http://kylewh.github.io/page/3/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,8 +43,8 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
-" data-ishome = "false" >
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+" data-ishome = "true" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -124,6 +124,126 @@
 <!-- Main Content -->
 
 
+<style>
+
+    .custom-haojen-container .post-preview:nth-of-type(1),
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        text-align: center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        background-size: cover;
+        padding: 0;
+        height: 300px;
+        display: table;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.16);
+    }
+
+    /*去掉诗歌的背景图片*/
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        background-image: none !important;
+        background-color: rgba(255, 248, 220, 0.5);
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) h2,
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta,
+    .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        text-shadow: 0 0 40px rgba(0, 0, 0, 1);
+        letter-spacing: 1px;
+        color: #fff;
+        margin-top: 0;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta {
+        font-size: .9em;
+        font-weight: 300;
+        margin-top: 0;
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-child(1) .post-subtitle {
+        letter-spacing: 6px;
+        font-size: 18px;
+        font-family: unset;
+        font-weight: 400;
+        color: rgba(0, 0, 0, .75)
+    }
+
+    /*不显示摘要*/
+    .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
+        display: none
+    }
+
+    /*只第一个显示背景图片*/
+    .custom-haojen-container .post-preview:not(:nth-child(1)) {
+        background-image: none !important;
+    }
+
+    /*第一个分界线去掉*/
+    .custom-haojen-container hr:nth-of-type(1) {
+        display: none;
+    }
+
+    /*主题*/
+    .custom-haojen-container .post-preview:nth-of-type(1) > a {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    /*诗词标题*/
+    .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        font-size: 35px;
+        font-family: STKaiti;
+        color: rgba(0, 0, 0, .8);
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) .post-meta {
+        color: #0e2231;
+    }
+
+    @media (max-width: 768px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 240px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 28px !important;
+            margin-top: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-of-type(1) > a {
+            padding: 20px
+        }
+    }
+
+    /*手机屏幕*/
+    @media (max-width: 400px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 195px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 20px !important;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 16px;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) a {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
 <!-- Page Header -->
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
     <div class="row">
@@ -151,128 +271,21 @@
 
 
 <div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/2017-05-02-maskneeded副本.jpg')">
-    <a href="/2017/05/03/Byemess-基于React-redux的在线Todo应用/">
+     style="background-image: url('http://om8hmotom.bkt.clouddn.com/2017-05-05-1409556011css-selectors-sales.jpg')">
+    <a href="/2017/01/01/狙击CSS选择器/">
         <h2 class="post-title">
-            Byemess-基于React&redux的在线Todo应用
+            狙击CSS选择器
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-05-03
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-01-01
         </p>
         
         <div class="post-content-preview">
             <p>
-                Why为什么又是Todo，全世界的初学者都在做todo吗？可能很多人要问这句话，其实这句话可以等同于：
+                
 
-为什么你做了个云音乐播放器？
-为什么你做了个新闻阅读APP？
-为什么你做了个VUE/REACT版本的CNODE？
-
-究其本质，这几个应用都是data-map模式，哈哈哈哈这是我自己创的词，意..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/	byemess2.jpg')">
-    <a href="/2017/05/01/感天动地，谍照！/">
-        <h2 class="post-title">
-            感天动地，谍照！
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-05-01
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Finnaly磨了这么久，终于…
-
-
-这个project我可是下了决心要精细打磨…争取用上更多react技术栈里的开源库。     
-漫漫长路啊，如果再改用saga的话….     
-熬不住了，先睡觉！   
-过两天去找工作了，还得好好复习复习 T_T     
-
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/reduxlog.jpg')">
-    <a href="/2017/04/21/Redux小书系列-Redux思维导图/">
-        <h2 class="post-title">
-            Redux小书系列--Redux思维导图
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-04-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                进展这两天在了解一些best practice，然后用它来尝试把之前的todo demo给不断的改改改改…. 在这之间也很懵逼，把自己改糊涂了。 很容易就迷失了逻辑，所以，好记性不如画脑图！ 所以我又拿出了我的mindNode进行了一番创作….    
-大概长这个样子：
-    
-链接：
-
-PD..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/redux.png')">
-    <a href="/2017/04/21/我的第一本redux小书/">
-        <h2 class="post-title">
-            我的第一本redux小书
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-04-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                写在前面的无关紧要的话说好了不跳票….呵呵…这都多久没更新了….说好分享的异步动画库呢…其实在电脑里放着都落灰了…我一时半会儿都有点记忆模糊了…我一定更一定更….最近要去找工作了，终于迈入了框架的坑。别问我为什么选了React ：）最近真的很郁闷啊，回头看看已经折腾过的东西，都有种记忆模糊的感觉..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('http://om8hmotom.bkt.clouddn.com/redux.png')">
-    <a href="/2017/04/21/我的第一本redux小书/我的第一本redux小书/">
-        <h2 class="post-title">
-            我的第一本redux小书
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2017-04-21
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                写在前面的无关紧要的话说好了不跳票….呵呵…这都多久没更新了….说好分享的异步动画库呢…其实在电脑里放着都落灰了…我一时半会儿都有点记忆模糊了…我一定更一定更….最近要去找工作了，终于迈入了框架的坑。别问我为什么选了React ：）最近真的很郁闷啊，回头看看已经折腾过的东西，都有种记忆模糊的感觉..
+基本选择器
+通配选择器： * 选中所有的的元素，性能极差，不建议使用。性能问题： CSS选择器也是通过遍历dom-tree去寻找，稍微有点了解就明白，基于dom的查找与操作都是占用资源的，所以在进行命名的时候考虑性能进行相应调整可以make your website faster. 提高用户..
             </p>
         </div>
     </a>
@@ -287,6 +300,10 @@ PD..
 <!-- 翻页 pager -->
 
 <ul class="pager">
+    
+    <li class="previous">
+        <a href="/page/2/">&larr; Newer Posts</a>
+    </li>
     
     
 </ul>
